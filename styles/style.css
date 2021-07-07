@@ -12,6 +12,11 @@
   --arrow-color: #fff;
   --dots-color: #fff;
   --dots-fill-color: #fff;
+  --color-background: #000;
+}
+
+body {
+  background-color: var(--color-background);
 }
 
 .media-control--prev,
@@ -50,7 +55,7 @@
 .media-content {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .slick-list,
