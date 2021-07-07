@@ -1,0 +1,163 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+:root {
+  box-sizing: border-box;
+  --arrow-size: 40px;
+  --arrow-color: #fff;
+  --dots-color: #fff;
+  --dots-fill-color: #fff;
+}
+
+.media-control--prev,
+.media-control--next {
+  cursor: pointer;
+}
+
+.media-control--prev svg,
+.media-control--next svg {
+  fill: var(--arrow-color, #fff);
+  width: var(--arrow-size);
+  height: var(--arrow-size);
+}
+
+.slick-arrow {
+  position: absolute;
+  z-index: 100;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.media-control--next {
+  right: 0;
+}
+
+.media-slideshow {
+  width: 100vw;
+  height: 100vh;
+}
+
+.media-slideshow__content {
+  height: 100%;
+  width: 100%;
+}
+
+.media-content {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slick-list,
+.slick-track {
+  width: 100%;
+  height: 100%;
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.slick-dots li:not(:first-child) {
+  margin-left: 12px;
+}
+
+.slick-dots li {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--dots-color);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slick-dots .slick-active {
+  background-color: var(--dots-fill-color);
+}
+
+.slick-dots li button {
+  font-size: 0;
+  display: none;
+}
+
+/*
+
+body {
+  height: 500px;
+  width: 900px;
+}
+
+.media-slideshow {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.media-slideshow__controls {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  z-index: 100;
+}
+
+.media-control {
+  width: var(--arrow-size);
+}
+
+.media-control--left,
+.media-control--right {
+  cursor: pointer;
+  color: white;
+}
+
+.media-control--left svg,
+.media-control--right svg {
+  fill: var(--arrow-color, #fff);
+}
+
+.media-control--left {
+}
+
+.media-control--right {
+}
+
+.media-slideshow__content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow-x: hidden;
+}
+
+.media-content {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  transition: transform 1s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+.media-content__img,
+.media-content__vid {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media-content__img {
+  object-fit: cover;
+}
+
+.media-content__vid {
+} */
