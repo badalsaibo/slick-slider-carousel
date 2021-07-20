@@ -2,7 +2,7 @@ const URL = `https://id.hubculture.com/ultraexchange/assets?category=art`;
 
 const slickOptions = {
     arrows: true,
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 2000,
     fade: true,
@@ -96,7 +96,6 @@ function toggleFullScreen() {
 
 function toggleSlickSliderControls(value = false) {
     $(".media-slideshow__content").slick("slickSetOption", "arrows", value, true);
-    $(".media-slideshow__content").slick("slickSetOption", "dots", value, true);
 }
 
 function toggleMediaSettings(value = false) {
