@@ -1,38 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles/style.css" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
-    />
-    <title>Media Slideshow</title>
-  </head>
-  <body>
-    <div class="media-slideshow">
-      <div class="media-slideshow__content">
-        <!-- <img src="/assets/media-contents/img-1.jpeg" alt="img" class="media-content" />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <title>Media Slideshow</title>
+</head>
+
+<body>
+  <div class="media-settings">
+    <div class="media-settings__block media-settings__autoplay-toggle">
+      <div class="media-settings__label">Autoplay</div>
+      <input type="checkbox" name="autoplay-toggle" id="autoplay-toggle">
+      <label for="autoplay-toggle"></label>
+    </div>
+
+    <div class="media-settings__block media-settings__autoplay-duration">
+      <label for="autoplay-duration" class="media-settings__label">Autoplay Duration (s)</label>
+      <input type="number" name="autoplay-duration" id="autoplay-duration" placeholder="1">
+    </div>
+  </div>
+
+  <div class="full-screen-button">
+    <button title="Go fullscreen" id="fullScreenButton">
+      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="expand"
+        class="svg-inline--fa fa-expand fa-w-14" role="img" viewBox="0 0 448 512">
+        <path fill="currentColor"
+          d="M0 180V56c0-13.3 10.7-24 24-24h124c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H64v84c0 6.6-5.4 12-12 12H12c-6.6 0-12-5.4-12-12zM288 44v40c0 6.6 5.4 12 12 12h84v84c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12V56c0-13.3-10.7-24-24-24H300c-6.6 0-12 5.4-12 12zm148 276h-40c-6.6 0-12 5.4-12 12v84h-84c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h124c13.3 0 24-10.7 24-24V332c0-6.6-5.4-12-12-12zM160 468v-40c0-6.6-5.4-12-12-12H64v-84c0-6.6-5.4-12-12-12H12c-6.6 0-12 5.4-12 12v124c0 13.3 10.7 24 24 24h124c6.6 0 12-5.4 12-12z" />
+      </svg>
+    </button>
+  </div>
+
+  <div class="media-slideshow">
+    <div class="media-slideshow__content">
+      <!-- <img src="/assets/media-contents/img-1.jpeg" alt="img" class="media-content" />
         <img src="/assets/media-contents/img-2.jpeg" alt="img" class="media-content" />
         <img src="/assets/media-contents/img-3.jpeg" alt="img" class="media-content" />
         <video class="media-content" autoplay muted loop>
           <source src="/assets/media-contents/video.mp4" type="video/mp4" />
         </video> -->
-      </div>
     </div>
-    <script src="/scripts/data.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script
-      type="text/javascript"
-      src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
-    ></script>
-    <script src="/scripts/script.js"></script>
-  </body>
+  </div>
+  <script src="/scripts/data.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script src="/scripts/script.js"></script>
+</body>
+
 </html>
