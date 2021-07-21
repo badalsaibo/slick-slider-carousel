@@ -1,6 +1,7 @@
 const URL = `https://id.hubculture.com/ultraexchange/assets?category=art`;
 
 let IS_FULLSCREEN = false;
+const IDLE_TIME = 2000; // In milliseconds
 
 const slickOptions = {
     arrows: true,
@@ -161,6 +162,6 @@ function toggleAllControls(value) {
     toggleButtonSettings(value);
 }
 
-onInactive(2000, function () {
+onInactive(IDLE_TIME, function () {
     toggleAllControls(false);
 });
