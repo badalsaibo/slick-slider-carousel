@@ -104,6 +104,7 @@ body {
     background-color: #ffffff63;
     padding: 0.5rem 1rem;
     border-radius: 12px;
+    transition: width .1s ease-out, height .1s ease-out;
 }
 
 .media-settings__block {
@@ -113,8 +114,8 @@ body {
     align-items: center;
 }
 
-.media-settings__block:not(:last-child) {
-    margin-bottom: 0.5rem;
+.media-settings__block:not(:first-child) {
+    margin-top: 0.5rem;
 }
 
 .media-settings__label {

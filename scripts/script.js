@@ -60,12 +60,21 @@ function setAutoplayDuration(value) {
     $(".media-slideshow__content").slick("slickSetOption", "autoplaySpeed", value);
 }
 
+function toggleAutoplayDuration(value) {
+    value ? $(".media-settings__autoplay-duration").show() : $(".media-settings__autoplay-duration").hide();
+}
+
 $("#autoplay-toggle").change(function () {
-    this.checked ? setAutoplay(true) : setAutoplay(false);
+    if (this.checked) {
+        setAutoplay(true);
+        toggleAutoplayDuration(true);
+    } else {
+        setAutoplay(false);
+        toggleAutoplayDuration(false);
+    }
 });
 
 $("#autoplay-duration").change(function () {
-    console.log(this.value);
     setAutoplayDuration(this.value * 1000);
 });
 
@@ -121,3 +130,5 @@ document.addEventListener("fullscreenchange", (event) => {
         toggleButtonSettings(true);
     }
 });
+
+$(".media-settings__autoplay-duration").hide();
