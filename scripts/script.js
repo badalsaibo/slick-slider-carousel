@@ -1,7 +1,6 @@
 const URL = `https://id.hubculture.com/ultraexchange/assets?category=art`;
 
 let IS_FULLSCREEN = false;
-let INITAL_HIDDEN = true;
 
 const slickOptions = {
     arrows: true,
@@ -143,7 +142,9 @@ function onInactive(ms, cb) {
     let wait = setTimeout(cb, ms);
 
     function handleMoveness() {
-        toggleAllControls(true);
+        if (!IS_FULLSCREEN) {
+            toggleAllControls(true);
+        }
         clearTimeout(wait);
         wait = setTimeout(cb, ms);
     }
