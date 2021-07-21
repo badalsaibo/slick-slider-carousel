@@ -1,5 +1,8 @@
 const URL = `https://id.hubculture.com/ultraexchange/assets?category=art`;
 
+let IS_FULLSCREEN = false;
+let INITAL_HIDDEN = true;
+
 const slickOptions = {
     arrows: true,
     dots: false,
@@ -108,11 +111,11 @@ function toggleSlickSliderControls(value = false) {
 }
 
 function toggleMediaSettings(value = false) {
-    value ? $(".media-settings").show() : $(".media-settings").hide();
+    value ? $(".media-settings").fadeIn() : $(".media-settings").fadeOut();
 }
 
 function toggleButtonSettings(value = false) {
-    value ? $(".full-screen-button ").show() : $(".full-screen-button ").hide();
+    value ? $(".full-screen-button ").fadeIn() : $(".full-screen-button ").fadeOut();
 }
 
 $("#fullScreenButton").click(function () {
@@ -123,6 +126,7 @@ $("#fullScreenButton").click(function () {
 });
 
 document.addEventListener("fullscreenchange", (event) => {
+    IS_FULLSCREEN = document.fullscreenElement ? true : false;
     if (!document.fullscreenElement) {
         // console.log(`Element exiting from full-screen mode.`);
         toggleSlickSliderControls(true);
@@ -131,4 +135,31 @@ document.addEventListener("fullscreenchange", (event) => {
     }
 });
 
+// AUTO PLAY DURATION HIDE
 $(".media-settings__autoplay-duration").hide();
+
+// IDLE TIME
+function onInactive(ms, cb) {
+    let wait = setTimeout(cb, ms);
+
+    function handleMoveness() {
+        toggleAllControls(true);
+        clearTimeout(wait);
+        wait = setTimeout(cb, ms);
+    }
+
+    document.body.addEventListener("mousemove", handleMoveness);
+    document.body.addEventListener("keydown", handleMoveness);
+    document.body.addEventListener("keyup", handleMoveness);
+    document.body.addEventListener("focus", handleMoveness);
+}
+
+function toggleAllControls(value) {
+    toggleSlickSliderControls(value);
+    toggleMediaSettings(value);
+    toggleButtonSettings(value);
+}
+
+onInactive(2000, function () {
+    toggleAllControls(false);
+});
