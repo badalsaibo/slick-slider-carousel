@@ -1,6 +1,7 @@
 const URL = `https://id.hubculture.com/ultraexchange/assets?category=art`;
 
 let IS_FULLSCREEN = false;
+let AUTOPLAY_DURATION = 1000;
 const IDLE_TIME = 2000; // In milliseconds
 
 const slickOptions = {
@@ -13,7 +14,7 @@ const slickOptions = {
     centerPadding: 0,
     cssEase: "linear",
     autoplay: false,
-    autoplaySpeed: 1000,
+    autoplaySpeed: AUTOPLAY_DURATION,
     pauseOnFocus: false,
     pauseOnHover: false,
     nextArrow:
@@ -54,12 +55,16 @@ fetch(URL)
     .catch((error) => console.error(error));
 
 // MEDIA SETTINGS
+function getSlickValue(property) {
+    return $(".media-slideshow__content").slick("slickGetOption", property);
+}
 
 function setAutoplay(value) {
     $(".media-slideshow__content").slick("slickSetOption", "autoplay", value, true);
 }
 
 function setAutoplayDuration(value) {
+    AUTOPLAY_DURATION = value;
     $(".media-slideshow__content").slick("slickSetOption", "autoplaySpeed", value);
 }
 
@@ -164,4 +169,16 @@ function toggleAllControls(value) {
 
 onInactive(IDLE_TIME, function () {
     toggleAllControls(false);
+});
+
+// VIDEO PAUSE
+$(".media-slideshow__content").on("afterChange", function (_, slick) {
+    const isAutoPlayOn = getSlickValue("autoplay");
+    const currentActiveSlide = slick.$slides[slick.currentSlide];
+
+    if (isAutoPlayOn && currentActiveSlide.tagName === "VIDEO") {
+        const videoLength = currentActiveSlide.duration;
+        setAutoplay(false);
+        setTimeout(() => setAutoplay(true), videoLength * 1000);
+    }
 });
